@@ -1,5 +1,5 @@
 // Require necessary NPM packages
-// Require the job resource routes and controllers
+const userController = require('./controllers/users');
 const jobController = require('./controllers/jobs');
 const express = require('express');
 const mongoose = require('mongoose');
@@ -17,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Configure the route middleware
 app.use('/api/jobs', jobController);
+app.use('/api', userController);
 
 // The last middleware receives any error as its first argument
 app.use((err, req, res, next) => {
